@@ -1,28 +1,34 @@
 # RSA-32 & Quantum Attack Demo
 
 ## Description
-This project provides a complete end-to-end demonstration of how a toy 32-bit RSA implementation can be used for “secure” messaging between two classical endpoints (Alice ↔ Bob), then broken by Shor’s quantum factoring algorithm. It also shows why Quantum Key Distribution (QKD) is the only truly future-proof key exchange method in the face of scalable quantum computers.
+This project provides a complete end-to-end demonstration of how a toy **32-bit RSA** implementation can be used for “secure” messaging between two classical endpoints (Alice ↔ Bob), then broken by **Shor’s quantum factoring algorithm**. It also shows why **Quantum Key Distribution (QKD)** is the only truly future-proof key exchange method in the face of scalable quantum computers.
+
+---
 
 ## Features
 - **Classical RSA-32 pipeline**  
-  • 16-bit prime generation & 32-bit keypair  
-  • Message padding, encryption & decryption  
+  - 16-bit prime generation & 32-bit keypair  
+  - Message padding, encryption & decryption  
 - **Secure channel simulation**  
-  • Alice encrypts “HELLO BOB!”, Bob decrypts it  
+  - Alice encrypts `HELLO BOB!`, Bob decrypts it  
 - **Quantum payload preparation**  
-  • Export public modulus & ciphertext for attack  
+  - Export public modulus & ciphertext for attack  
 - **Shor’s algorithm demo**  
-  • Factors N=15 on a local simulator  
-  • Hardware-ready hook for 32-bit modulus  
+  - Factors `N = 15` on a local simulator  
+  - Hardware-ready hook for 32-bit modulus  
 - **Reproducible environment**  
-  • Python 3.8 virtualenv  
-  • Qiskit 0.25.0 + Terra 0.17.0, Aer 0.8.0, Aqua 0.9.0, Ignis 0.6.0, IBMQ-Provider 0.12.2
+  - Python 3.8 virtualenv  
+  - Qiskit 0.25.0 + Terra 0.17.0, Aer 0.8.0, Aqua 0.9.0, Ignis 0.6.0, IBMQ-Provider 0.12.2
+
+---
 
 ## Prerequisites
-- **System Python 3.x** (for classical demos)
+- **System Python 3.x** (for classical demos)  
 - **Python 3.8** (for quantum demo)  
-  Install via your package manager or [deadsnakes PPA on Ubuntu]  
+  *Install via your OS package manager or the deadsnakes PPA on Ubuntu*  
 - **Git** (to clone the repo)
+
+---
 
 ## Installation
 
@@ -31,21 +37,22 @@ This project provides a complete end-to-end demonstration of how a toy 32-bit RS
    git clone https://github.com/your-username/rsa32-shor-attack-simulation.git
    cd rsa32-shor-attack-simulation
 
-2. **Install classical Dependencies**
-no external packages beyond the ptython standard library
+    Classical demo dependencies
+    No external packages required beyond the Python standard library.
 
-3. **Set up the quantum demo environment**
-# Create & activate Python 3.8 venv
-python3.8 -m venv qkd-legacy
-source qkd-legacy/bin/activate
+    Set up the quantum demo environment
 
-# Upgrade pip and install pinned Qiskit stack
-pip install --upgrade pip
-pip install -r requirements_legacy.txt --use-deprecated=legacy-resolver
+    # Create & activate Python 3.8 venv
+    python3.8 -m venv qkd-legacy
+    source qkd-legacy/bin/activate
 
+    # Upgrade pip and install pinned Qiskit stack
+    pip install --upgrade pip
+    pip install -r requirements_legacy.txt --use-deprecated=legacy-resolver
 
-## USAGE
-**Classical RSA-32 Demo**
+Usage
+Classical RSA-32 Demo
+
 # Generate keys, encrypt & decrypt a sample message
 python rsa32.py
 
@@ -55,7 +62,8 @@ python communication.py
 # Prepare quantum attack payload
 python quantum_payload.py
 
-**Quantum Attack Demo**
+Quantum Attack Demo
+
 # With the qkd-legacy venv active:
 python shor_attack.py
 
@@ -63,7 +71,8 @@ python shor_attack.py
 # then re-run to observe simulator limits.
 deactivate
 
-## Project Structure
+Project Structure
+
 rsa32-shor-attack-simulation/
 ├── rsa32.py                 # Classical RSA-32 implementation
 ├── communication.py         # Alice↔Bob secure channel simulation
@@ -72,21 +81,25 @@ rsa32-shor-attack-simulation/
 ├── requirements_legacy.txt  # Qiskit 0.25.0 environment pins
 └── README.md                # Project overview & instructions
 
-## Configurations and Presets
-Python interpreter paths
-• python → your system’s Python 3.x for RSA scripts
-• qkd-legacy/bin/python → Python 3.8 inside the quantum venv
+Configuration & Presets
 
-Pinned dependencies in requirements_legacy.txt ensure reproducibility:
+    Python interpreter paths
 
-qiskit==0.25.0
-qiskit-terra==0.17.0
-qiskit-aer==0.8.0
-qiskit-ignis==0.6.0
-qiskit-ibmq-provider==0.12.2
-qiskit-aqua==0.9.0
+        python → your system’s Python 3.x for RSA scripts
 
-Block size for padding is set to 4 bytes in rsa32.py (adjustable if needed).
+        qkd-legacy/bin/python → Python 3.8 inside the quantum venv
 
-## Author 
-Sumaya Hussein Ismail.
+    Pinned dependencies in requirements_legacy.txt ensure reproducibility:
+
+    qiskit==0.25.0
+    qiskit-terra==0.17.0
+    qiskit-aer==0.8.0
+    qiskit-ignis==0.6.0
+    qiskit-ibmq-provider==0.12.2
+    qiskit-aqua==0.9.0
+
+    Padding block size is set to 4 bytes in rsa32.py (adjustable as needed).
+
+Author
+
+Sumaya Hussein Ismail
