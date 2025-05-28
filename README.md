@@ -36,19 +36,19 @@ This project provides a complete end-to-end demonstration of how a toy **32-bit 
    ```bash
    git clone https://github.com/your-username/rsa32-shor-attack-simulation.git
    cd rsa32-shor-attack-simulation
-
-    Classical demo dependencies
+2. Classical demo dependencies
     No external packages required beyond the Python standard library.
 
-    Set up the quantum demo environment
+3. Set up the quantum demo environment
 
-    # Create & activate Python 3.8 venv
-    python3.8 -m venv qkd-legacy
-    source qkd-legacy/bin/activate
+## Create & activate Python 3.8 venv
+python3.8 -m venv qkd-legacy
+source qkd-legacy/bin/activate
 
-    # Upgrade pip and install pinned Qiskit stack
-    pip install --upgrade pip
-    pip install -r requirements_legacy.txt --use-deprecated=legacy-resolver
+# Upgrade pip and install pinned Qiskit stack
+pip install --upgrade pip
+pip install -r requirements_legacy.txt --use-deprecated=legacy-resolver
+
 
 Usage
 Classical RSA-32 Demo
